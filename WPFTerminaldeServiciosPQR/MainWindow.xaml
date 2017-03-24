@@ -1,0 +1,47 @@
+﻿<Window x:Class="WPFTerminaldeServiciosPQR.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFTerminaldeServiciosPQR"
+        mc:Ignorable="d"
+        Title="CentroAguas" Height="900" Width="1600"
+        WindowState="Maximized"
+        WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2">
+            <Rectangle Height="150" Fill="#00427A"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="3">
+            <Rectangle  Fill="Orange" Width="400" Height="450" Margin="0,50"></Rectangle>
+
+        </StackPanel>
+
+        <StackPanel  Grid.Row="4" Grid.ColumnSpan="2" Margin="0,50,-0.4,0.4">
+            <Rectangle Width="1400" Height="60" Fill="#00427A" Margin="0,20,0,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="50,30,50,30" >
+            <Button x:Name="btnCupon" Height="125" Margin="0" Content="Generar Cupon de Abono"> </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Margin="50,30,50,30" >
+            <Button x:Name="btnDuplicado" Height="125" Margin="0">º Imprimir Duplicado de factura</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Margin="50,30,50,30">
+            <Button x:Name="btnPazSalvo" Height="125" Margin="0" Click="btnPazSalvo_Click" >º Certificado de Paz y Salvo</Button>
+        </StackPanel>
+    </Grid>
+</Window>
