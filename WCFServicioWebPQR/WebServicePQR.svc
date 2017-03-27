@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WCFServicioWebPQR.Service1" CodeBehind="WebServicePQR.svc.cs" %>
