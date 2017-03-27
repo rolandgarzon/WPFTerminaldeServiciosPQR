@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.OracleClient;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -25,7 +27,7 @@ namespace WCFServicioWebPQR
         {
             List<DatosCuponPago> ConsultaCuponPago = new List<DatosCuponPago>();
 
-            DataTable dtDatosBasicos = new DataTable();
+            System.Data.DataTable dtDatosBasicos = new DataTable();
             int nuIdPais = 57; int nuIdDepartamento = 76; int nuIdMunicipio = 834;
             string lugartrabajo = nuIdPais.ToString() + nuIdDepartamento.ToString() + nuIdMunicipio.ToString();
             int numerolugartrabajo = lugartrabajo.Length;

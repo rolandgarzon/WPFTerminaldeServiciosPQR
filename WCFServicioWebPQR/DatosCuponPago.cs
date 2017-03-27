@@ -61,3 +61,4 @@ namespace WCFServicioWebPQR
         public string nuIdMaquina { get; set; }
 
     }
+}
