@@ -7,10 +7,10 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-
+//WebServicePQR
 namespace WCFServicioWebPQR
 {
-    public class wsRecaudo : IWSServicePQR
+    public class Service1 : IWSServicePQR
     {
         /// <summary>
         /// metodo que conulta los datos de un cupon de pago
@@ -115,7 +115,8 @@ namespace WCFServicioWebPQR
                 using (SiewebDBCommand cmdDatosBasicos = new SiewebDBCommand())
                 {
                     //Consultar datos del suscriptor
-                    cmdDatosBasicos.QueryString = "select  substr(cm_suscriptor.idsuscriptor,8) suscriptor,trim(cm_suscriptor.nombre)||' '||trim(cm_suscriptor.apellido) nombrecompleto,TRIM(TO_CHAR(cm_suscriptor.saldopendiente,'999G999G990D99')) AS saldopendiente, Max(substr(cm_cuentacobro.idcuentacobro,8)) cuentacobro,facturasconsaldo";
+                    cmdDatosBasicos.QueryString = "select  substr(cm_suscriptor.idsuscriptor,8) suscriptor,trim(cm_suscriptor.nombre)||' '||trim(cm_suscriptor.apellido) nombrecompleto,";
+                    cmdDatosBasicos.QueryString = cmdDatosBasicos.QueryString + " TRIM(TO_CHAR(cm_suscriptor.saldopendiente, '999G999G990D99')) AS saldopendiente, Max(substr(cm_cuentacobro.idcuentacobro, 8)) cuentacobro, facturasconsaldo";
                     cmdDatosBasicos.QueryString = cmdDatosBasicos.QueryString + " from cm_cuentacobro,cm_suscriptor";
                     cmdDatosBasicos.QueryString = cmdDatosBasicos.QueryString + " where cm_cuentacobro.idsuscriptor=cm_suscriptor.idsuscriptor";
                     cmdDatosBasicos.QueryString = cmdDatosBasicos.QueryString + " and cm_suscriptor.idsuscriptor=" + numeroSuscriptor;
@@ -271,6 +272,137 @@ namespace WCFServicioWebPQR
                                                 nuIdEstadoCuponPago,
                                                 nuIdCuentaCobro
                                                 );
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nuIdsuscriptor"></param>
+        /// <returns></returns>
+        public List<DatosCuentaCobro> obtenerDatosCuentaCobro(long nuIdsuscriptor)
+        {
+            List<DatosCuentaCobro> ConsultaFacturas = new List<DatosCuentaCobro>();
+            DataTable dtDatosFacturas = new DataTable();
+            int nuIdPais = 57; int nuIdDepartamento = 76; int nuIdMunicipio = 834;
+            string lugartrabajo = nuIdPais.ToString() + nuIdDepartamento.ToString() + nuIdMunicipio.ToString();
+            int numerolugartrabajo = lugartrabajo.Length;
+            string vaNumeroSuscriptor = lugartrabajo + nuIdsuscriptor;
+            long numeroSuscriptor = Convert.ToInt64(vaNumeroSuscriptor);
+            DatosCuentaCobro DatosCuentaCobro = new DatosCuentaCobro();
+            try
+            {
+                using (SiewebDBCommand cmdDatosFacturas = new SiewebDBCommand())
+                {
+                    //Consultar datos del suscriptor
+                    cmdDatosFacturas.QueryString = "select * from";
+                    cmdDatosFacturas.QueryString = cmdDatosFacturas.QueryString + " (select SubStr(idcuentacobro,8)NumeroFactura,fechaemision,valortotalfacturado";
+                    cmdDatosFacturas.QueryString = cmdDatosFacturas.QueryString + " from cm_factura";
+                    cmdDatosFacturas.QueryString = cmdDatosFacturas.QueryString + " where idsuscriptor=" + numeroSuscriptor;
+                    cmdDatosFacturas.QueryString = cmdDatosFacturas.QueryString + " ORDER BY fechaemision desc)";
+                    cmdDatosFacturas.QueryString = cmdDatosFacturas.QueryString + " where ROWNUM <= 5";
+
+
+                    //Lleno el DataReader con los datos de la consulta
+                    dtDatosFacturas = cmdDatosFacturas.ExecuteStringCommand();
+
+                    //si la consulta encuentra datos es decir que el suscriptor existe
+
+                    if (dtDatosFacturas.Rows.Count > 0)
+                    {
+                        foreach (DataRow dr in dtDatosFacturas.Rows)
+                        {
+                            DatosCuentaCobro.nuIdCuentaCobro = Convert.ToInt64(dr["NumeroFactura"]);
+                            DatosCuentaCobro.daFechaGeneracion = Convert.ToDateTime(dr["fechaemision"]);
+                            DatosCuentaCobro.valortotalfacturado = Convert.ToDouble(dr["valortotalfacturado"]);
+                            
+                            ConsultaFacturas.Add(DatosCuentaCobro);
+                        }
+                        return ConsultaFacturas;
+                    }
+                    //si el numero de suscriptor ingresado no existe retorna un mensaje
+                    else
+                    {
+                        DatosCuentaCobro.MensajeRespuestaError = "El suscriptor no existe";
+                        ConsultaFacturas.Add(DatosCuentaCobro);
+                        return ConsultaFacturas;
+                    }
+                }
+            }
+            catch (OracleException e)
+            {
+                string errorMessage = "Code: " + e.Code + "\n" +
+                                      "Message: " + e.Message;
+                DatosCuentaCobro.MensajeRespuestaError = "Ocurrio un error no controlado contacte con el administrador";
+                ConsultaFacturas.Add(DatosCuentaCobro);
+                return ConsultaFacturas;
+            }
+
+        }
+
+        public List<DatosSuscriptor> obtenerSuscriptorPazySalvo(long nuIdsuscriptor)
+        {
+            List<DatosSuscriptor> ConsultaSuscriptor = new List<DatosSuscriptor>();
+            DataTable dtDatosBasicos = new DataTable();
+            int nuIdPais = 57; int nuIdDepartamento = 76; int nuIdMunicipio = 834;
+            string lugartrabajo = nuIdPais.ToString() + nuIdDepartamento.ToString() + nuIdMunicipio.ToString();
+            int numerolugartrabajo = lugartrabajo.Length;
+            string vaNumeroSuscriptor = lugartrabajo + nuIdsuscriptor;
+            long numeroSuscriptor = Convert.ToInt64(vaNumeroSuscriptor);
+            DatosSuscriptor DatosSuscriptor = new DatosSuscriptor();
+            try
+            {
+                using (SiewebDBCommand cmdDatosBasicos = new SiewebDBCommand())
+                {
+                    //Consultar datos del suscriptor
+                    cmdDatosBasicos.QueryString = "select saldopendiente,saldopdtefinanciacion";
+                    cmdDatosBasicos.QueryString = cmdDatosBasicos.QueryString + " from cm_suscriptor";
+                    cmdDatosBasicos.QueryString = cmdDatosBasicos.QueryString + " where cm_suscriptor.idsuscriptor=" + numeroSuscriptor;
+                    
+                    //Lleno el DataReader con los datos de la consulta
+                    dtDatosBasicos = cmdDatosBasicos.ExecuteStringCommand();
+
+                    //si la consulta encuentra datos es decir que el suscriptor existe
+
+                    if (dtDatosBasicos.Rows.Count > 0)
+                    {
+                        foreach (DataRow dr in dtDatosBasicos.Rows)
+                        {
+                            //si el suscriptor no tiene saldo pendiente retorna un mensje
+                            if (Convert.ToDouble(dr["saldopendiente"])>0 || Convert.ToDouble(dr["saldopdtefinanciacion"])>0)
+                            {
+                                DatosSuscriptor.nuSaldoPendiente = Convert.ToDouble(dr["saldopendiente"]);
+                                DatosSuscriptor.nuSaldoPteFinanciacion = Convert.ToDouble(dr["saldopdtefinanciacion"]);
+                                double saldototal = DatosSuscriptor.nuSaldoPendiente + DatosSuscriptor.nuSaldoPteFinanciacion;
+                                DatosSuscriptor.MensajeRespuestaOk = "El suscriptor presenta saldo pendiente por valor de $ " + saldototal;
+                                ConsultaSuscriptor.Add(DatosSuscriptor);
+                                //return ConsultaSuscriptor;
+                            }
+                            //si el suscriptor tiene saldo pendiente obtiene los datos
+                            else
+                            {
+                                DatosSuscriptor.MensajeRespuestaOk = "El suscriptor a Paz y Salvo";
+                                ConsultaSuscriptor.Add(DatosSuscriptor);
+                            }
+                        }
+                        return ConsultaSuscriptor;
+                    }
+                    //si el numero de suscriptor ingresado no existe retorna un mensaje
+                    else
+                    {
+                        DatosSuscriptor.MensajeRespuestaError = "El suscriptor no existe";
+                        ConsultaSuscriptor.Add(DatosSuscriptor);
+                        return ConsultaSuscriptor;
+                    }
+                }
+            }
+            catch (OracleException e)
+            {
+                string errorMessage = "Code: " + e.Code + "\n" +
+                                      "Message: " + e.Message;
+                DatosSuscriptor.MensajeRespuestaError = "Ocurrio un error no controlado contacte con el administrador";
+                ConsultaSuscriptor.Add(DatosSuscriptor);
+                return ConsultaSuscriptor;
+            }
+
         }
     }
 

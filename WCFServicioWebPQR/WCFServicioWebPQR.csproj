@@ -97,13 +97,13 @@
     <Compile Include="BaseRespuesta.cs" />
     <Compile Include="CreaCuponPago.cs" />
     <Compile Include="DataBaseConnect.cs" />
+    <Compile Include="DatosCuentaCobro.cs" />
     <Compile Include="DatosCuponPago.cs" />
     <Compile Include="DatosSuscriptor.cs" />
     <Compile Include="IWSServicePQR.cs" />
     <Compile Include="WebServicePQR.svc.cs">
       <DependentUpon>WebServicePQR.svc</DependentUpon>
     </Compile>
-    <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SiewebDBCommand.cs" />
   </ItemGroup>

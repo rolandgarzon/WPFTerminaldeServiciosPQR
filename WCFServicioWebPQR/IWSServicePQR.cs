@@ -14,6 +14,12 @@ namespace WCFServicioWebPQR
         List<DatosSuscriptor> obtenerDatosSuscriptor(long nuIdsuscriptor);
 
         [OperationContract]
+        List<DatosSuscriptor> obtenerSuscriptorPazySalvo(long nuIdsuscriptor);
+
+        [OperationContract]
+        List<DatosCuentaCobro> obtenerDatosCuentaCobro(long nuIdsuscriptor);
+
+        [OperationContract]
         List<DatosCuponPago> obtenerDatosCuponPago(long nuIdcuponpago);
 
         [OperationContract]

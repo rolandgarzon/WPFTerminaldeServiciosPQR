@@ -12,6 +12,8 @@ namespace WCFServicioWebPQR
         [DataMember]
         public double nuSaldoPendiente { get; set; }
         [DataMember]
+        public double nuSaldoPteFinanciacion { get; set; }
+        [DataMember]
         public int nuFacturasconSaldo { get; set; }
         [DataMember]
         public long nuIdCuentaCobro { get; set; }
