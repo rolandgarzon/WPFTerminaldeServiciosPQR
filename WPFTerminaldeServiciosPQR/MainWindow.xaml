@@ -33,7 +33,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Margin="50,30,50,30" >
-            <Button x:Name="btnCupon" Height="125" Margin="0" Content="Generar Cupon de Abono"> </Button>
+            <Button x:Name="btnCupon" Height="125" Margin="0" Content="Generar Cupon de Abono" Click="btnCupon_Click"> </Button>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Margin="50,30,50,30" >

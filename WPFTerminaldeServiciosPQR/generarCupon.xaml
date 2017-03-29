@@ -16,35 +16,69 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>            
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>            
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Name="encabezado" Grid.Column="0" Grid.ColumnSpan="3">
+        <StackPanel Name="spnl_encabezado" Grid.Column="0" Grid.ColumnSpan="3">
             <Rectangle  Height="150" Fill="#00427A"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="0" Grid.Row="1" Grid.RowSpan="3">
-            <TextBlock />
+        <StackPanel Name="spnl_numeromatricula" Grid.Column="0" Grid.Row="1" Margin="20,30,0,5">
+            <Label FontSize="30" Width="500" Height="50" Content="Digite el numero de matricula" />
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="3">
-        </StackPanel>        
-        
-        <StackPanel Grid.Row="1" Margin="50,30,50,30" >
+        <StackPanel Name="spnl_txtnumeromatricula" Grid.Row="2" Margin="25,10,0,15">
+            <TextBox Name="txtNumeromatricula" Width="300" Height="50" HorizontalAlignment="Left"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Margin="50,30,50,30" >
+        <StackPanel Name="spnl_nombresuscriptor" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="100,30,0,5">
+            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="Nombre del suscriptor" />
         </StackPanel>
 
-        <StackPanel Grid.Row="3" Margin="50,30,50,30">
+        <StackPanel Name="spnl_txtnombre" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="100,10,0,15">
+            <TextBox Name="txtNombre" Width="600" Height="50" HorizontalAlignment="Left"/>
         </StackPanel>
 
-        <StackPanel Name="piedepagina"  Grid.Row="7" Grid.ColumnSpan="3" Margin="0,50,-0.4,0.4">
+        <StackPanel Name="spnl_lblnumerofactura" Grid.Row="3" Margin="20,10,0,5" >
+            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="Número de la última factura" />
+        </StackPanel>
+
+        <StackPanel Name="spnl_txtnumerofactura" Grid.Row="4" Margin="25,10,0,15">
+            <TextBox Name="txtNumerofactura" Width="300" Height="50" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+
+        <StackPanel Name="spnl_lblfechageneracion" Grid.Column="1" Grid.Row="3" Margin="100,10,0,5" >
+            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="Fecha de generación " />
+        </StackPanel>
+
+        <StackPanel Name="spnl_fechageneracion" Grid.Row="4" Grid.Column="1" Margin="100,10,0,15">
+            <TextBox Name="txtFechageneracion" Width="300" Height="50" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <StackPanel Name="spnl_lblvalorabonar" Grid.Row="5" Margin="20,10,0,5" >
+            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="Valor abonar" />
+        </StackPanel>
+
+        <StackPanel Name="spnl_valorabonar" Grid.Row="6" Grid.Column="0" Margin="25,10,0,15">
+            <TextBox Name="txtValorabonar" Width="300" Height="50" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <StackPanel Name="spnl_lblsaldopendiente" Grid.Column="1" Grid.Row="5" Margin="100,0,0,5" >
+            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="Saldo pendiente" />
+        </StackPanel>
+
+        <StackPanel Name="spnl_saldopendiente" Grid.Row="6" Grid.Column="1" Margin="100,10,0,15">
+            <TextBox Name="txtSaldopendiente" Width="300" Height="50" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <StackPanel Name="piedepagina"  Grid.Row="8" Grid.ColumnSpan="3" Margin="0,50,-0.4,0.4">
             <Rectangle Width="1400" Height="60" Fill="#00427A" Margin="0,20,0,0"/>
         </StackPanel>
 

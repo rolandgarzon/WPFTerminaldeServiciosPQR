@@ -21,5 +21,12 @@ namespace WPFTerminaldeServiciosPQR
             wingenerarCupon.Show();
             this.Close();
         }
+
+        private void btnCupon_Click(object sender, RoutedEventArgs e)
+        {
+            generarCupon wingenerarCupon = new generarCupon();
+            wingenerarCupon.Show();
+            this.Close();
+        }
     }
 }
