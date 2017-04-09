@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCFServicioWebPQR" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFServicioWebPQR" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfDatosSuscriptor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DatosSuscriptor" nillable="true" type="tns:DatosSuscriptor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDatosSuscriptor" nillable="true" type="tns:ArrayOfDatosSuscriptor" />
+  <xs:complexType name="DatosSuscriptor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRespuesta">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="nuFacturasconSaldo" type="xs:int" />
+          <xs:element minOccurs="0" name="nuIdCuentaCobro" type="xs:long" />
+          <xs:element minOccurs="0" name="nuIdSuscriptor" type="xs:long" />
+          <xs:element minOccurs="0" name="nuSaldoPendiente" type="xs:double" />
+          <xs:element minOccurs="0" name="nuSaldoPendienteAcu" type="xs:double" />
+          <xs:element minOccurs="0" name="nuSaldoPendienteAlc" type="xs:double" />
+          <xs:element minOccurs="0" name="nuSaldoPendienteUltimaFactura" type="xs:double" />
+          <xs:element minOccurs="0" name="nuSaldoPteFinanciacion" type="xs:double" />
+          <xs:element minOccurs="0" name="vaDireccion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vaNombre" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DatosSuscriptor" nillable="true" type="tns:DatosSuscriptor" />
+  <xs:complexType name="BaseRespuesta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MensajeRespuestaError" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MensajeRespuestaOk" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseRespuesta" nillable="true" type="tns:BaseRespuesta" />
+  <xs:complexType name="ArrayOfDatosCuentaCobro">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DatosCuentaCobro" nillable="true" type="tns:DatosCuentaCobro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDatosCuentaCobro" nillable="true" type="tns:ArrayOfDatosCuentaCobro" />
+  <xs:complexType name="DatosCuentaCobro">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRespuesta">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="daFechaGeneracion" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="nuIdCuentaCobro" type="xs:long" />
+          <xs:element minOccurs="0" name="nuIdDepartamento" type="xs:int" />
+          <xs:element minOccurs="0" name="nuIdMaquina" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nuIdMunicipio" type="xs:int" />
+          <xs:element minOccurs="0" name="nuIdPais" type="xs:int" />
+          <xs:element minOccurs="0" name="nuIdSuscriptor" type="xs:long" />
+          <xs:element minOccurs="0" name="nuIdUsuario" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nuSaldoPendiente" type="xs:double" />
+          <xs:element minOccurs="0" name="vaNombre" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="valortotalfacturado" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DatosCuentaCobro" nillable="true" type="tns:DatosCuentaCobro" />
+  <xs:complexType name="ArrayOfDatosCuponPago">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DatosCuponPago" nillable="true" type="tns:DatosCuponPago" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDatosCuponPago" nillable="true" type="tns:ArrayOfDatosCuponPago" />
+  <xs:complexType name="DatosCuponPago">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRespuesta">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="daFechaGeneracion" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="nuIdCuentaCobro" type="xs:long" />
+          <xs:element minOccurs="0" name="nuIdCuponPago" type="xs:long" />
+          <xs:element minOccurs="0" name="nuIdDepartamento" type="xs:int" />
+          <xs:element minOccurs="0" name="nuIdEstadoCuponPago" type="xs:int" />
+          <xs:element minOccurs="0" name="nuIdMaquina" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nuIdMunicipio" type="xs:int" />
+          <xs:element minOccurs="0" name="nuIdPais" type="xs:int" />
+          <xs:element minOccurs="0" name="nuIdSuscriptor" type="xs:long" />
+          <xs:element minOccurs="0" name="nuIdUsuario" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nuSaldoPendiente" type="xs:double" />
+          <xs:element minOccurs="0" name="nuValorCuponPago" type="xs:int" />
+          <xs:element minOccurs="0" name="saldoafavor" type="xs:double" />
+          <xs:element minOccurs="0" name="vaEstadoCuponPago" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vaNombre" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vaTipoCuponPago" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="valortotalfacturado" type="xs:double" />
+          <xs:element minOccurs="0" name="valortotalfacturadoglobal" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DatosCuponPago" nillable="true" type="tns:DatosCuponPago" />
+</xs:schema>

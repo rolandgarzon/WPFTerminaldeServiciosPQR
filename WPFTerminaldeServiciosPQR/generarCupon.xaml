@@ -7,17 +7,19 @@
       mc:Ignorable="d"         
       d:DesignHeight="300" d:DesignWidth="300"
       Title="CentroAguas" Height="900" Width="1600"
+      WindowStyle="None"
       WindowState="Maximized">
-    <Grid>
+    <Grid Background="#D8D8D8">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="215*"/>
+            <RowDefinition Height="95*"/>
+            <RowDefinition Height="95*"/>
+            <RowDefinition Height="95*"/>
+            <RowDefinition Height="95*"/>
+            <RowDefinition Height="95*"/>
+            <RowDefinition Height="95*"/>
+            <RowDefinition Height="95*"/>
+            <RowDefinition Height="150*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -26,60 +28,76 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Name="spnl_encabezado" Grid.Column="0" Grid.ColumnSpan="3">
-            <Rectangle  Height="150" Fill="#00427A"/>
+            <Rectangle Height="216" Fill="#00427A"/>
         </StackPanel>
 
-        <StackPanel Name="spnl_numeromatricula" Grid.Column="0" Grid.Row="1" Margin="20,30,0,5">
-            <Label FontSize="30" Width="500" Height="50" Content="Digite el numero de matricula" />
+        <StackPanel Name="spnl_numeromatricula" Grid.Column="0" Grid.Row="1" Margin="20,10,0,5">
+            <Label FontSize="30" Width="500" Height="50" Content="Numero de matricula:" />
         </StackPanel>
 
         <StackPanel Name="spnl_txtnumeromatricula" Grid.Row="2" Margin="25,10,0,15">
-            <TextBox Name="txtNumeromatricula" Width="300" Height="50" HorizontalAlignment="Left"/>
+            <TextBox FontSize="30" Name="txtNumeromatricula" Width="300" Height="50" HorizontalAlignment="Left" PreviewMouseDown="txtNumeromatricula_PreviewMouseDown"/>
         </StackPanel>
 
-        <StackPanel Name="spnl_nombresuscriptor" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="100,30,0,5">
-            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="Nombre del suscriptor" />
+        <StackPanel Name="spnl_nombresuscriptor" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="100,10,0,5">
+            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="Nombre del suscriptor:" />
         </StackPanel>
 
         <StackPanel Name="spnl_txtnombre" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="100,10,0,15">
-            <TextBox Name="txtNombre" Width="600" Height="50" HorizontalAlignment="Left"/>
+            <TextBox FontSize="30" IsEnabled="False" Name="txtNombre" Width="600" Height="50" HorizontalAlignment="Left"/>
         </StackPanel>
 
-        <StackPanel Name="spnl_lblnumerofactura" Grid.Row="3" Margin="20,10,0,5" >
-            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="Número de la última factura" />
+        <StackPanel Name="spnl_lblnumerofactura" Grid.Row="3" Margin="20,10,0,0" >
+            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left"  Content="Número de la última factura:" />
         </StackPanel>
 
-        <StackPanel Name="spnl_txtnumerofactura" Grid.Row="4" Margin="25,10,0,15">
-            <TextBox Name="txtNumerofactura" Width="300" Height="50" HorizontalAlignment="Left"/>
+        <StackPanel Name="spnl_txtnumerofactura" Grid.Row="4" Margin="25,0,0,15">
+            <TextBox FontSize="30" IsEnabled="False" Name="txtNumerofactura" Width="300" Height="50"  HorizontalAlignment="Left"/>
         </StackPanel>
 
 
-        <StackPanel Name="spnl_lblfechageneracion" Grid.Column="1" Grid.Row="3" Margin="100,10,0,5" >
-            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="Fecha de generación " />
+        <StackPanel Name="spnl_lblsaldopendiente" Grid.Column="1" Grid.Row="3" Margin="100,10,0,5" >
+            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="Saldo pendiente:" />
         </StackPanel>
 
-        <StackPanel Name="spnl_fechageneracion" Grid.Row="4" Grid.Column="1" Margin="100,10,0,15">
-            <TextBox Name="txtFechageneracion" Width="300" Height="50" HorizontalAlignment="Left"/>
+        <StackPanel Name="spnl_saldopendiente" Grid.Row="4" Grid.Column="1" Margin="100,0,0,15">
+            <TextBox Text="{Binding Value, StringFormat={}{0:#.00}}" FontSize="30" IsEnabled="False" Name="txtSaldopendiente" Width="300" Height="50" HorizontalAlignment="Left"/>
         </StackPanel>
 
+        <StackPanel Name="spnl_lblfacturasconsaldo" Grid.Column="2" Grid.Row="3" Margin="10,10,0,5" >
+            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="Facturas con saldo:" />
+        </StackPanel>
+
+        <StackPanel Name="spnl_facturasconsaldo" Grid.Row="4" Grid.Column="2" Margin="10,0,0,15">
+            <TextBox Text="{Binding Value, StringFormat={}{0:#.00}}" FontSize="30" IsEnabled="False" Name="txtFacturasconsaldo" Width="260" Height="50" HorizontalAlignment="Left"/>
+        </StackPanel>        
+        
+        
         <StackPanel Name="spnl_lblvalorabonar" Grid.Row="5" Margin="20,10,0,5" >
-            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="Valor abonar" />
+            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="Valor abonar:" />
         </StackPanel>
 
         <StackPanel Name="spnl_valorabonar" Grid.Row="6" Grid.Column="0" Margin="25,10,0,15">
-            <TextBox Name="txtValorabonar" Width="300" Height="50" HorizontalAlignment="Left"/>
+            <TextBox FontSize="30" Name="txtValorabonar" Width="300" Height="50" HorizontalAlignment="Left" PreviewMouseDown="txtValoranobar_preview"/>
         </StackPanel>
 
-        <StackPanel Name="spnl_lblsaldopendiente" Grid.Column="1" Grid.Row="5" Margin="100,0,0,5" >
-            <Label FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="Saldo pendiente" />
+        <StackPanel Name="spnl_lblmensaje" Grid.Column="0"  Grid.Row="7" Grid.ColumnSpan="2" Margin="10,0,0,0" >
+            <Label Name="lblmensaje" FontSize="30" Width="500" Height="50" HorizontalAlignment="Left" Content="" />
         </StackPanel>
 
-        <StackPanel Name="spnl_saldopendiente" Grid.Row="6" Grid.Column="1" Margin="100,10,0,15">
-            <TextBox Name="txtSaldopendiente" Width="300" Height="50" HorizontalAlignment="Left"/>
+        <StackPanel Name="spnl_btnImprimir" Grid.Column="2" Grid.Row="7" Margin="0,0,0,0" >
+            <Button FontSize="30" Content="Imprimir" Width="150" Height="50"/>
+        </StackPanel>
+        
+        <StackPanel Name="spnl_btnSalir" Grid.Column="2" Grid.Row="8" Margin="0,0,0,0" >
+            <Button FontSize="30" Content="Regresar" Width="150" Height="50" Click="Button_Click" />
         </StackPanel>
 
-        <StackPanel Name="piedepagina"  Grid.Row="8" Grid.ColumnSpan="3" Margin="0,50,-0.4,0.4">
-            <Rectangle Width="1400" Height="60" Fill="#00427A" Margin="0,20,0,0"/>
+
+        <StackPanel Name="piedepagina"  Grid.Row="8" Grid.ColumnSpan="3" Margin="0,50,0,0">
+            <Label Width="1300" Height="60" Foreground="White" Background="#00427A" Margin="0,20,0,0" HorizontalAlignment="Center" RenderTransformOrigin="1.01,0.673"
+                   HorizontalContentAlignment="Center" Content="Desarrollado por el Proceso de Gestión Informática – Centroaguas S.A. E.S.P. – Copyright 2017. – Todos los Derechos Reservados">
+            </Label>
         </StackPanel>
 
     </Grid>

@@ -10,37 +10,41 @@
         WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="113*"/>
+            <RowDefinition Height="113*"/>
+            <RowDefinition Height="113*"/>
+            <RowDefinition Height="18*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="803*"/>
+            <ColumnDefinition Width="790*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.ColumnSpan="2">
-            <Rectangle Height="150" Fill="#00427A"/>
-        </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="3">
-            <Rectangle  Fill="Orange" Width="400" Height="450" Margin="0,50"></Rectangle>
-
+        <StackPanel Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
+            <Image Source="imagenes/barrasuperior.png" />
         </StackPanel>
 
-        <StackPanel  Grid.Row="4" Grid.ColumnSpan="2" Margin="0,50,-0.4,0.4">
-            <Rectangle Width="1400" Height="60" Fill="#00427A" Margin="0,20,0,0"/>
+        <StackPanel Grid.RowSpan="3" Margin="803,1,-0.4,11.6" Grid.Row="1" Grid.ColumnSpan="2">
+            <Image Source="imagenes/yosi.png" Height="800" Margin="10,0,0.2,0" />
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Margin="50,30,50,30" >
-            <Button x:Name="btnCupon" Height="125" Margin="0" Content="Generar Cupon de Abono" Click="btnCupon_Click"> </Button>
+        <StackPanel  Grid.Row="4" Grid.ColumnSpan="2" Margin="0,4.4,-0.4,-3.4">
+            <Image Source="imagenes/barrainferior.png" Margin="0,0,0,0"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Margin="50,30,50,30" >
-            <Button x:Name="btnDuplicado" Height="125" Margin="0">º Imprimir Duplicado de factura</Button>
+        <StackPanel Grid.Row="1" Margin="50,30,47.2,40.6" >
+            <Button x:Name="btnCupon" Height="155" Margin="0,0,9.6,0" Click="btnCupon_Click">
+                <Image Source="imagenes/generarcuponpago.png" Width="673" Height="112" />
+            </Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="3" Margin="50,30,50,30">
+        <StackPanel Grid.Row="2" Margin="50,19.4,47.2,30.2" >
+            <Button x:Name="btnDuplicado" Height="125" Margin="0" Click="btnDuplicado_Click">
+
+            </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Margin="50,29.8,47.2,27.6">
             <Button x:Name="btnPazSalvo" Height="125" Margin="0" Click="btnPazSalvo_Click" >º Certificado de Paz y Salvo</Button>
         </StackPanel>
     </Grid>

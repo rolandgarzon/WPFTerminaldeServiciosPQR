@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTerminaldeServiciosPQR", "WPFTerminaldeServiciosPQR\WPFTerminaldeServiciosPQR.csproj", "{0696CB49-96C8-4768-BDEE-47FEC2917A40}"
+	ProjectSection(ProjectDependencies) = postProject
+		{345C8F4E-2E89-46E4-9CED-AD317E39E749} = {345C8F4E-2E89-46E4-9CED-AD317E39E749}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServicioWebPQR", "WCFServicioWebPQR\WCFServicioWebPQR.csproj", "{345C8F4E-2E89-46E4-9CED-AD317E39E749}"
 EndProject

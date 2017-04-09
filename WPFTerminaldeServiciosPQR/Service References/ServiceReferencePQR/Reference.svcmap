@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="76473e96-5092-4944-a185-0f619691eb57" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55934/WebServicePQR.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WebServicePQR.xsd" MetadataType="Schema" ID="39eb2230-d23a-41c9-bd2b-d481449db6a5" SourceId="1" SourceUrl="http://localhost:55934/WebServicePQR.svc?xsd=xsd2" />
+    <MetadataFile FileName="WebServicePQR1.xsd" MetadataType="Schema" ID="d8920548-512f-4910-ba65-be25b4a2263d" SourceId="1" SourceUrl="http://localhost:55934/WebServicePQR.svc?xsd=xsd0" />
+    <MetadataFile FileName="WebServicePQR2.xsd" MetadataType="Schema" ID="b1dccf73-f1e1-43ad-8c76-a47f91669648" SourceId="1" SourceUrl="http://localhost:55934/WebServicePQR.svc?xsd=xsd1" />
+    <MetadataFile FileName="WebServicePQR.disco" MetadataType="Disco" ID="92efebc9-1a25-44ac-9722-df30c34a912c" SourceId="1" SourceUrl="http://localhost:55934/WebServicePQR.svc?disco" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="9cb0f9d0-90e0-43c7-8820-7132f68d958f" SourceId="1" SourceUrl="http://localhost:55934/WebServicePQR.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -116,11 +116,12 @@ namespace WCFServicioWebPQR
                 {
                     //Consultar datos del suscriptor
                     cmdDatosBasicos.QueryString = "select  substr(cm_suscriptor.idsuscriptor,8) suscriptor,trim(cm_suscriptor.nombre)||' '||trim(cm_suscriptor.apellido) nombrecompleto,";
-                    cmdDatosBasicos.QueryString = cmdDatosBasicos.QueryString + " TRIM(TO_CHAR(cm_suscriptor.saldopendiente, '999G999G990D99')) AS saldopendiente, Max(substr(cm_cuentacobro.idcuentacobro, 8)) cuentacobro, facturasconsaldo";
+                    cmdDatosBasicos.QueryString = cmdDatosBasicos.QueryString + " TRIM(TO_CHAR(cm_suscriptor.saldopendiente, '999G999G990D99')) AS saldopendiente, Max(substr(cm_cuentacobro.idcuentacobro, 8)) cuentacobro, facturasconsaldo,";
+                    cmdDatosBasicos.QueryString = cmdDatosBasicos.QueryString + " direccion,saldopdteacueducto,saldopdtealcantarillado";
                     cmdDatosBasicos.QueryString = cmdDatosBasicos.QueryString + " from cm_cuentacobro,cm_suscriptor";
                     cmdDatosBasicos.QueryString = cmdDatosBasicos.QueryString + " where cm_cuentacobro.idsuscriptor=cm_suscriptor.idsuscriptor";
                     cmdDatosBasicos.QueryString = cmdDatosBasicos.QueryString + " and cm_suscriptor.idsuscriptor=" + numeroSuscriptor;
-                    cmdDatosBasicos.QueryString = cmdDatosBasicos.QueryString + " GROUP BY cm_suscriptor.idsuscriptor,trim(cm_suscriptor.nombre)||' '||trim(cm_suscriptor.apellido),cm_suscriptor.saldopendiente,facturasconsaldo";
+                    cmdDatosBasicos.QueryString = cmdDatosBasicos.QueryString + " GROUP BY cm_suscriptor.idsuscriptor,trim(cm_suscriptor.nombre)||' '||trim(cm_suscriptor.apellido),cm_suscriptor.saldopendiente,facturasconsaldo,direccion,saldopdteacueducto,saldopdtealcantarillado";
 
                     //Consultar la ultima factura
                     SiewebDBCommand cmdUltimaFactura = new SiewebDBCommand();
@@ -156,7 +157,10 @@ namespace WCFServicioWebPQR
                             {
                                 DatosSuscriptor.nuIdSuscriptor = Convert.ToInt64(dr["suscriptor"]);
                                 DatosSuscriptor.vaNombre = dr["nombrecompleto"].ToString();
+                                DatosSuscriptor.vaDireccion = dr["direccion"].ToString();
                                 DatosSuscriptor.nuSaldoPendiente = Convert.ToDouble(dr["saldopendiente"]);
+                                DatosSuscriptor.nuSaldoPendienteAcu = Convert.ToDouble(dr["saldopdteacueducto"]);
+                                DatosSuscriptor.nuSaldoPendienteAlc = Convert.ToDouble(dr["saldopdtealcantarillado"]);
                                 DatosSuscriptor.nuIdCuentaCobro = Convert.ToInt64(dr["cuentacobro"]);
                                 DatosSuscriptor.nuFacturasconSaldo = Convert.ToInt32(dr["facturasconsaldo"]);
 

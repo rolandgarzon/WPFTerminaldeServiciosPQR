@@ -10,7 +10,13 @@ namespace WCFServicioWebPQR
         [DataMember]
         public string vaNombre { get; set; }
         [DataMember]
+        public string vaDireccion { get; set; }
+        [DataMember]
         public double nuSaldoPendiente { get; set; }
+        [DataMember]
+        public double nuSaldoPendienteAcu { get; set; }
+        [DataMember]
+        public double nuSaldoPendienteAlc { get; set; }
         [DataMember]
         public double nuSaldoPteFinanciacion { get; set; }
         [DataMember]

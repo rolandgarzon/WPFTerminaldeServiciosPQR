@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55934/WebServicePQR.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55934/WebServicePQR.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55934/WebServicePQR.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFServicioWebPQR" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWSServicePQR_obtenerDatosSuscriptor_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerDatosSuscriptor" />
+  </wsdl:message>
+  <wsdl:message name="IWSServicePQR_obtenerDatosSuscriptor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerDatosSuscriptorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWSServicePQR_obtenerSuscriptorPazySalvo_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerSuscriptorPazySalvo" />
+  </wsdl:message>
+  <wsdl:message name="IWSServicePQR_obtenerSuscriptorPazySalvo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerSuscriptorPazySalvoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWSServicePQR_obtenerDatosCuentaCobro_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerDatosCuentaCobro" />
+  </wsdl:message>
+  <wsdl:message name="IWSServicePQR_obtenerDatosCuentaCobro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerDatosCuentaCobroResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWSServicePQR_obtenerDatosCuponPago_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerDatosCuponPago" />
+  </wsdl:message>
+  <wsdl:message name="IWSServicePQR_obtenerDatosCuponPago_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerDatosCuponPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWSServicePQR_obtenerEstadoFacturacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerEstadoFacturacion" />
+  </wsdl:message>
+  <wsdl:message name="IWSServicePQR_obtenerEstadoFacturacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerEstadoFacturacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWSServicePQR_generarDatosCuponPago_InputMessage">
+    <wsdl:part name="parameters" element="tns:generarDatosCuponPago" />
+  </wsdl:message>
+  <wsdl:message name="IWSServicePQR_generarDatosCuponPago_OutputMessage">
+    <wsdl:part name="parameters" element="tns:generarDatosCuponPagoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWSServicePQR">
+    <wsdl:operation name="obtenerDatosSuscriptor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWSServicePQR/obtenerDatosSuscriptor" message="tns:IWSServicePQR_obtenerDatosSuscriptor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWSServicePQR/obtenerDatosSuscriptorResponse" message="tns:IWSServicePQR_obtenerDatosSuscriptor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerSuscriptorPazySalvo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWSServicePQR/obtenerSuscriptorPazySalvo" message="tns:IWSServicePQR_obtenerSuscriptorPazySalvo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWSServicePQR/obtenerSuscriptorPazySalvoResponse" message="tns:IWSServicePQR_obtenerSuscriptorPazySalvo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDatosCuentaCobro">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWSServicePQR/obtenerDatosCuentaCobro" message="tns:IWSServicePQR_obtenerDatosCuentaCobro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWSServicePQR/obtenerDatosCuentaCobroResponse" message="tns:IWSServicePQR_obtenerDatosCuentaCobro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDatosCuponPago">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWSServicePQR/obtenerDatosCuponPago" message="tns:IWSServicePQR_obtenerDatosCuponPago_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWSServicePQR/obtenerDatosCuponPagoResponse" message="tns:IWSServicePQR_obtenerDatosCuponPago_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerEstadoFacturacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWSServicePQR/obtenerEstadoFacturacion" message="tns:IWSServicePQR_obtenerEstadoFacturacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWSServicePQR/obtenerEstadoFacturacionResponse" message="tns:IWSServicePQR_obtenerEstadoFacturacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="generarDatosCuponPago">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWSServicePQR/generarDatosCuponPago" message="tns:IWSServicePQR_generarDatosCuponPago_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWSServicePQR/generarDatosCuponPagoResponse" message="tns:IWSServicePQR_generarDatosCuponPago_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWSServicePQR" type="tns:IWSServicePQR">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="obtenerDatosSuscriptor">
+      <soap:operation soapAction="http://tempuri.org/IWSServicePQR/obtenerDatosSuscriptor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerSuscriptorPazySalvo">
+      <soap:operation soapAction="http://tempuri.org/IWSServicePQR/obtenerSuscriptorPazySalvo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDatosCuentaCobro">
+      <soap:operation soapAction="http://tempuri.org/IWSServicePQR/obtenerDatosCuentaCobro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDatosCuponPago">
+      <soap:operation soapAction="http://tempuri.org/IWSServicePQR/obtenerDatosCuponPago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerEstadoFacturacion">
+      <soap:operation soapAction="http://tempuri.org/IWSServicePQR/obtenerEstadoFacturacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generarDatosCuponPago">
+      <soap:operation soapAction="http://tempuri.org/IWSServicePQR/generarDatosCuponPago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IWSServicePQR" binding="tns:BasicHttpBinding_IWSServicePQR">
+      <soap:address location="http://localhost:55934/WebServicePQR.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

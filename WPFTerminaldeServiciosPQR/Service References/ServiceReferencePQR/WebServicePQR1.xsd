@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:55934/WebServicePQR.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFServicioWebPQR" />
+  <xs:element name="obtenerDatosSuscriptor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nuIdsuscriptor" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerDatosSuscriptorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCFServicioWebPQR" minOccurs="0" name="obtenerDatosSuscriptorResult" nillable="true" type="q1:ArrayOfDatosSuscriptor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerSuscriptorPazySalvo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nuIdsuscriptor" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerSuscriptorPazySalvoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCFServicioWebPQR" minOccurs="0" name="obtenerSuscriptorPazySalvoResult" nillable="true" type="q2:ArrayOfDatosSuscriptor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerDatosCuentaCobro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nuIdsuscriptor" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerDatosCuentaCobroResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFServicioWebPQR" minOccurs="0" name="obtenerDatosCuentaCobroResult" nillable="true" type="q3:ArrayOfDatosCuentaCobro" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerDatosCuponPago">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nuIdcuponpago" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerDatosCuponPagoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCFServicioWebPQR" minOccurs="0" name="obtenerDatosCuponPagoResult" nillable="true" type="q4:ArrayOfDatosCuponPago" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerEstadoFacturacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nuIdcuponpago" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerEstadoFacturacionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="obtenerEstadoFacturacionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="generarDatosCuponPago">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nuIdSuscriptor" type="xs:long" />
+        <xs:element minOccurs="0" name="nuValorCuponPago" type="xs:int" />
+        <xs:element minOccurs="0" name="nuIdCuentaCobro" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="generarDatosCuponPagoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCFServicioWebPQR" minOccurs="0" name="generarDatosCuponPagoResult" nillable="true" type="q5:ArrayOfDatosCuponPago" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
