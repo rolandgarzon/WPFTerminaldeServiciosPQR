@@ -204,7 +204,6 @@
     <None Include="Service References\ServiceReferencePQR\WPFTerminaldeServiciosPQR.ServiceReferencePQR.DatosSuscriptor.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="WPFTerminaldeServiciosPQR_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -45,7 +45,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3" Margin="50,29.8,47.2,27.6">
-            <Button x:Name="btnPazSalvo" Height="125" Margin="0" Click="btnPazSalvo_Click" >º Certificado de Paz y Salvo</Button>
+            <Button x:Name="btnPazSalvo" Height="125" Margin="0" Click="btnPazSalvo_Click" >09/04/2017</Button>
         </StackPanel>
     </Grid>
 </Window>
